@@ -53,6 +53,7 @@ if __name__ == '__main__':
         raise Exception('Axis number must be 4 or 8')
     usb_devices = usb.core.find(find_all=True, idVendor=VENDOR, idProduct=PRODUCT)
     for dev in usb_devices:
+        print(f'Bus: {dev.bus}, Port: {dev.port_number}')
         servo_stik = UltimarcServoStik(dev)
         servo_stik.clear_drivers()
         servo_stik.set_axis_number(axis)
